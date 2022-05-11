@@ -19,4 +19,5 @@ Stats Statistics::ComputeStatistics(const std::vector<float>vec& ) {
         Stats1.max = max;
         
      }
+    return Stats1;
 }
