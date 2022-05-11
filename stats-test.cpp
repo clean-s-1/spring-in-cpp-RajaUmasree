@@ -38,6 +38,6 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     std::vector<float>vec = {99.896, 34.256, 4.455, 6.627};
     statsAlerter.checkAndAlert(vec);
 
-    //REQUIRE(emailAlert.emailSent);
-    //REQUIRE(ledAlert.ledGlows);
+    REQUIRE(emailAlert.emailSent);
+    REQUIRE(ledAlert.ledGlows);
 }
