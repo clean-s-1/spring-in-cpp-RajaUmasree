@@ -34,7 +34,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vec ) {
                  
             
  }
- void StatsAlerter::checkAndAlert(const vector<float>&vec) {
+ void StatsAlerter::checkAndAlert(const std::vector<float>&vec) {
       for(int i =0; i<vec.size();i++) {
              if(vec[i]>m_maxthreshold) {
                  emailAlert.emailSent = true;
