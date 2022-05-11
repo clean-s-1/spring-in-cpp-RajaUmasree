@@ -1,6 +1,6 @@
 #include "stats.h"
 
-Stats Statistics::ComputeStatistics(const std::vector<float>vec& ) {
+Stats Statistics::ComputeStatistics(const std::vector<float>&vec ) {
     Stats Stats1;
     float sum = 0.0;
     float min = vec[0];
