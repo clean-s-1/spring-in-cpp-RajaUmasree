@@ -34,7 +34,8 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     
     const float maxThreshold = 10.2;
     StatsAlerter statsAlerter(maxThreshold,emailAlert, ledAlert );
-    statsAlerter.checkAndAlert({99.896, 34.256, 4.455, 6.627});
+    vector<float>vec = {99.896, 34.256, 4.455, 6.627};
+    statsAlerter.checkAndAlert(vec);
 
     //REQUIRE(emailAlert.emailSent);
     //REQUIRE(ledAlert.ledGlows);
