@@ -39,8 +39,6 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vec ) {
              if(vec[i]>m_maxthreshold) {
                  emailAlert.emailSent = true;
                   ledAlert.ledGlows = true;
-                    
-                   cout << emailAlert.emailSent << endl;
               }
         }
             
