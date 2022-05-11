@@ -24,5 +24,5 @@ class StatsAlerter{
         struct LEDAlert ledAlert;
         StatsAlerter(float maxthreshold, struct EmailAlert emailAlert,
                  struct LEDAlert ledAlert);
-        void checkAndAlert(const vector<float>&vec);
+        void checkAndAlert(const std::vector<float>&vec);
 };
