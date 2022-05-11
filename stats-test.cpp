@@ -3,7 +3,8 @@
 #include "catch.hpp"
 #include "stats.h"
 
-#include <cmath>
+#include <math.h>
+#include <vector>
 
 TEST_CASE("reports average, minimum and maximum") {
     auto computedStats = Statistics::ComputeStatistics({1.5, 8.9, 3.2, 4.5});
@@ -14,7 +15,12 @@ TEST_CASE("reports average, minimum and maximum") {
 }
 
 TEST_CASE("average is NaN for empty array") {
+    
     auto computedStats = Statistics::ComputeStatistics({});
+    std::cout << isnan(computedStats.average) << std::endl;
+    std::cout << isnan(computedStats.max) << std::endl;
+    std::cout << isnan(computedStats.min) << std::endl;
+    
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
     
@@ -23,13 +29,14 @@ TEST_CASE("average is NaN for empty array") {
 }
 
 TEST_CASE("raises alerts when max is greater than threshold") {
-    EmailAlert emailAlert;
-    LEDAlert ledAlert;
-    std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
+    struct EmailAlert emailAlert;
+    struct LEDAlert ledAlert;
+   // std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
     
     const float maxThreshold = 10.2;
-    StatsAlerter statsAlerter(maxThreshold, alerters);
-    statsAlerter.checkAndAlert({99.8, 34.2, 4.5, 6.7});
+    StatsAlerter statsAlerter(maxThreshold,emailAlert, ledAlert );
+    std::vector<float>vec = {99.896, 34.256, 4.455, 6.627};
+    statsAlerter.checkAndAlert(vec);
 
     REQUIRE(emailAlert.emailSent);
     REQUIRE(ledAlert.ledGlows);
