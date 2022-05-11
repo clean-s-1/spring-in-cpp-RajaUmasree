@@ -4,6 +4,7 @@
 #include "stats.h"
 
 #include <math.h>
+#include <vector>
 
 TEST_CASE("reports average, minimum and maximum") {
     auto computedStats = Statistics::ComputeStatistics({1.5, 8.9, 3.2, 4.5});
