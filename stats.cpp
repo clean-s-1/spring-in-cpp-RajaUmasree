@@ -1,4 +1,5 @@
 #include "stats.h"
+#include <vector>
 
 Stats Statistics::ComputeStatistics(const std::vector<float>&vec ) {
     Stats Stats1;
@@ -23,3 +24,26 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&vec ) {
     }
     return Stats1;
 }
+
+    
+ StatsAlerter::StatsAlerter(float maxthreshold, struct EmailAlert emailAlert,
+    struct LEDAlert ledAlert) {
+            m_maxthreshold = maxthreshold;
+            emailAlert.emailSent = false;
+                  ledAlert.ledGlows = false;
+                 
+            
+ }
+ void StatsAlerter::checkAndAlert(const vector<float>&vec) {
+      for(int i =0; i<vec.size();i++) {
+             if(vec[i]>m_maxthreshold) {
+                 emailAlert.emailSent = true;
+                  ledAlert.ledGlows = true;
+                    
+                   cout << emailAlert.emailSent << endl;
+              }
+        }
+            
+  }
+    
+    
