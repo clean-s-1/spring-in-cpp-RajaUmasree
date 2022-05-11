@@ -37,5 +37,5 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     statsAlerter.checkAndAlert({99.896, 34.256, 4.455, 6.627});
 
     //REQUIRE(emailAlert.emailSent);
-    /REQUIRE(ledAlert.ledGlows);
+    //REQUIRE(ledAlert.ledGlows);
 }
